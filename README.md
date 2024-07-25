@@ -16,3 +16,12 @@ The strategy is to create a 'poisoned' ARP in which the source IP will be the sp
   <li> Run in the man in the middle container "tcpdump -SntvXX -i any"</li>
   <li> Run in the server container(victim) " wget http://old.fmi.unibuc.ro (or any other address) ". The wget command will make a HTTP request to the specifies URL and download the HTML content of the web page located at that URL.   </li>
   <li> If the middlle man can see HTML content from the request , congrats, your ARP-Spoofing attack worked! 😎 </li>
+
+
+## TCP-Hijacking
+TCP/IP hijacking is a man-in-the-middle attack where an user can gain access to another user's or client's authorized network connection. After hijackinga TCP/IP session, an attacker is able to easily read and modify the transferred packets and the hacker is also able to send its own request to the user. For this attack, the above project was used to "sneak" the middle man in the network.
+
+This project was made in collaboration with @ana-rosu and @iam-mj👧🏻👧🏻👧🏻
+
+## How does TCP-Hijacking work?
+Firstly, we will use the ARP-spoofing attack to get the packets from either the server, the client, or the connection between them. After we've managed to do this, the main thing behind TCP Hijacking is to correctly calculate the SEQ and ACK values for the next packet that the real target would send. You can find more about TCP protocol and why do we need to calculate this values, here:  https://medium.com/@R00tendo/tcp-connection-hijacking-deep-dive-9bbe03fce9a9
